@@ -96,3 +96,46 @@ function kgToStonePounds() {
     document.getElementById("stonePoundsResult").innerText =
     `${kg.toFixed(1)} kg = ${stone} st ${pounds} lb`;
 }
+
+// Metric BMI
+function calculateBMIMetric() {
+    const kg = parseFloat(document.getElementById("bmiKg").value) || 0;
+    const m = parseFloat(document.getElementById("bmiM").value) || 0;
+
+    if (kg <= 0 || m <= 0) {
+        document.getElementById("bmiResultMetric").innerText = "Please enter valid weight and height.";
+        return;
+    }
+
+    const bmi = kg / (m * m);
+    document.getElementById("bmiResultMetric").innerText =
+    `BMI: ${bmi.toFixed(1)} (${bmiCategory(bmi)})`;
+}
+
+// Imperial BMI
+function calculateBMIImperial() {
+    const stone = parseFloat(document.getElementById("bmiStone").value) || 0;
+    const pounds = parseFloat(document.getElementById("bmiPounds").value) || 0;
+    const feet = parseFloat(document.getElementById("bmiFeet").value) || 0;
+    const inches = parseFloat(document.getElementById("bmiInches").value) || 0;
+
+    const totalKg = ((stone * 14) + pounds) * 0.45359237;
+    const totalM = ((feet * 12) + inches) * 0.0254;
+
+    if (totalKg <= 0 || totalM <= 0) {
+        document.getElementById("bmiResultImperial").innerText = "Please enter valid weight and height.";
+        return;
+    }
+
+    const bmi = totalKg / (totalM * totalM);
+    document.getElementById("bmiResultImperial").innerText =
+    `BMI: ${bmi.toFixed(1)} (${bmiCategory(bmi)})`;
+}
+
+// BMI Category Helper
+function bmiCategory(bmi) {
+    if (bmi < 18.5) return "Underweight";
+    if (bmi < 25) return "Normal weight";
+    if (bmi < 30) return "Overweight";
+  return "Obese";
+}
