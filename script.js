@@ -74,3 +74,25 @@ function metresToFeetInches() {
     document.getElementById("feetInchesResult").innerText =
     `${metres.toFixed(2)} m = ${feet} ft ${inches} in`;
 }
+
+function stonePoundsToKg() {
+    const stone = parseFloat(document.getElementById("stone").value) || 0;
+    const pounds = parseFloat(document.getElementById("pounds").value) || 0;
+
+    const totalPounds = (stone * 14) + pounds;
+    const kg = totalPounds * 0.45359237; // 1 pound = 0.45359237 kg
+
+    document.getElementById("kgResult").innerText =
+    `${stone} st ${pounds} lb = ${kg.toFixed(1)} kg`;
+}
+
+function kgToStonePounds() {
+    const kg = parseFloat(document.getElementById("kg").value) || 0;
+
+    const totalPounds = kg / 0.45359237;
+    const stone = Math.floor(totalPounds / 14);
+    const pounds = Math.round(totalPounds % 14);
+
+    document.getElementById("stonePoundsResult").innerText =
+    `${kg.toFixed(1)} kg = ${stone} st ${pounds} lb`;
+}
