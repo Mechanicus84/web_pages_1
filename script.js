@@ -133,11 +133,3 @@ function calculateBMIImperial() {
     document.getElementById("bmiResultImperial").innerText =
     `BMI: ${bmi.toFixed(2)}`;
 }
-
-// BMI Category Helper
-function bmiCategory(bmi) {
-    if (bmi < 18.5) return "Underweight";
-    if (bmi < 25) return "Normal weight";
-    if (bmi < 30) return "Overweight";
-  return "Obese";
-}
