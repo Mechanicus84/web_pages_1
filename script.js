@@ -1,5 +1,6 @@
 // webpage : https://mechanicus84.github.io/web_pages_1/
 
+/*
 function addNumbers() 
 {
     const num1 = parseFloat(document.getElementById("num1").value) || 0;
@@ -7,6 +8,7 @@ function addNumbers()
     const sum = num1 + num2;
     document.getElementById("result").innerText = "Result: " + sum;
 }
+    */
 
 function calculateDates() {
     const startInput = document.getElementById("start").value;
