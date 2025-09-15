@@ -1,3 +1,5 @@
+// webpage : https://mechanicus84.github.io/web_pages_1/
+
 function addNumbers() 
 {
     const num1 = parseFloat(document.getElementById("num1").value) || 0;
@@ -48,5 +50,5 @@ function calculateDates() {
         <p><strong>Total Days:</strong> ${totalDays}</p>
         <p><strong>Weeks:</strong> ${weeks} weeks and ${remainingDays} days</p>
         <p><strong>Working Days (Mon–Fri):</strong> ${workingDays}</p>
-    `;
+        `;
 }
