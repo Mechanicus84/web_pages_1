@@ -6,49 +6,47 @@ function addNumbers()
     document.getElementById("result").innerText = "Result: " + sum;
 }
 
-function collect_dates () 
-{
-    console.log("\n --- collect_dates start --- ")
-    var start_date = document.getElementById("start_date").value;
-    var end_date = document.getElementById("end_date").value;
-    var date_values = calculate_dates(start_date, end_date);
+function calculateDates() {
+    const startInput = document.getElementById("start").value;
+    const endInput = document.getElementById("end").value;
 
-    console.log("\n collect_dates end --- ")
-
-}
-
-function calculate_dates(start_date,end_date) 
-{
-    console.log("\n --- calculate_days start --- ")
-
-    var time_diff = end_date - start_date;
-    var day_milliseconds = 86400000
-    var days_diff = time_diff / day_milliseconds;
-    var weeks_diff = days_diff / 7
-
-    weeks_diff = parseFloat(weeks_diff).toFixed(2)
-
-    console.log(`Start date : ${start_date}`)
-    console.log(`End date : ${end_date}`)
-    console.log(`Days : ${days_diff} (${weeks_diff} weeks)`)
-
-    const return_values = 
-    {
-        days : days_diff,
-        weeks : weeks_diff,
+    if (!startInput || !endInput) {
+        document.getElementById("dateResult").innerText = "Please select both dates.";
+        return;
     }
-    console.log(" --- calculate_days end --- ")
-    return return_values
-}
 
-function calculate_weight_stlb_kg (stones,pounds)
-{
-	console.log(`\n --- calculate_weight_stlb_kg start --- `)
-	var stones_to_pounds = stones * 14
-	var total_pounds = stones_to_pounds + pounds
-	var kilos = total_pounds / 2.2046
-	kilos = parseFloat(kilos).toFixed(2)
+    const startDate = new Date(startInput);
+    const endDate = new Date(endInput);
 
-	console.log(`${stones}st ${pounds}lb -> ${kilos}kg`)
-	console.log(` --- calculate_weight_stlb_kg end --- `)
+    if (endDate < startDate) {
+        document.getElementById("dateResult").innerText = "End date must be after start date.";
+        return;
+    }
+
+    // Total days
+    const msPerDay = 1000 * 60 * 60 * 24;
+    const diffMs = endDate - startDate;
+    const totalDays = Math.floor(diffMs / msPerDay);
+
+    // Weeks + remaining days
+    const weeks = Math.floor(totalDays / 7);
+    const remainingDays = totalDays % 7;
+
+    // Working days (Mon–Fri)
+    let workingDays = 0;
+    let current = new Date(startDate);
+    while (current <= endDate) {
+        const day = current.getDay(); // 0=Sun, 6=Sat
+        if (day !== 0 && day !== 6) {
+        workingDays++;
+        }
+        current.setDate(current.getDate() + 1);
+    }
+
+    // Output
+    document.getElementById("dateResult").innerHTML = `
+        <p><strong>Total Days:</strong> ${totalDays}</p>
+        <p><strong>Weeks:</strong> ${weeks} weeks and ${remainingDays} days</p>
+        <p><strong>Working Days (Mon–Fri):</strong> ${workingDays}</p>
+    `;
 }
