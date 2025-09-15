@@ -2,20 +2,6 @@ function toggleDarkMode() {
 	document.body.classList.toggle("dark-mode");
 }
 
-// Example Calculator
-function addNumbers() {
-	const num1 = parseFloat(document.getElementById("num1").value) || 0;
-	const num2 = parseFloat(document.getElementById("num2").value) || 0;
-
-	if (isNaN(num1) || isNaN(num2)) {
-		document.getElementById("result").innerHTML = `<span class="invalid-input">Please enter valid numbers.</span>`;
-		return;
-	}
-
-	const sum = num1 + num2;
-	document.getElementById("result").innerHTML = `<span class="calculation-result">Result: ${sum}</span>`;
-}
-
 // Date Calculator
 function calculateDates() {
 	const startInput = document.getElementById("start").value;
@@ -116,14 +102,6 @@ function kgToStonePounds() {
 	document.getElementById("stonePoundsResult").innerHTML = `<span class="calculation-result">${kg.toFixed(1)} kg = ${stone} st ${pounds} lb</span>`;
 }
 
-// BMI Calculator
-function bmiCategory(bmi) {
-	if (bmi < 18.5) return "Underweight";
-	if (bmi < 25) return "Normal weight";
-	if (bmi < 30) return "Overweight";
-	return "Obese";
-}
-
 function calculateBMIMetric() {
 	const kg = parseFloat(document.getElementById("bmiKg").value) || 0;
 	const m = parseFloat(document.getElementById("bmiM").value) || 0;
@@ -134,7 +112,7 @@ function calculateBMIMetric() {
 	}
 
 	const bmi = kg / (m * m);
-	document.getElementById("bmiResultMetric").innerHTML = `<span class="calculation-result">BMI: ${bmi.toFixed(1)} (${bmiCategory(bmi)})</span>`;
+	document.getElementById("bmiResultMetric").innerHTML = `<span class="calculation-result">BMI: ${bmi.toFixed(2)}</span>`;
 }
 
 function calculateBMIImperial() {
@@ -152,5 +130,5 @@ function calculateBMIImperial() {
 	}
 
 	const bmi = totalKg / (totalM * totalM);
-	document.getElementById("bmiResultImperial").innerHTML = `<span class="calculation-result">BMI: ${bmi.toFixed(1)} (${bmiCategory(bmi)})</span>`;
+	document.getElementById("bmiResultImperial").innerHTML = `<span class="calculation-result">BMI: ${bmi.toFixed(2)}</span>`;
 }
