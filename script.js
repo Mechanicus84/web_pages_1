@@ -109,7 +109,7 @@ function calculateBMIMetric() {
 
     const bmi = kg / (m * m);
     document.getElementById("bmiResultMetric").innerText =
-    `BMI: ${bmi.toFixed(1)} (${bmiCategory(bmi)})`;
+    `BMI: ${bmi.toFixed(2)}`;
 }
 
 // Imperial BMI
@@ -129,7 +129,7 @@ function calculateBMIImperial() {
 
     const bmi = totalKg / (totalM * totalM);
     document.getElementById("bmiResultImperial").innerText =
-    `BMI: ${bmi.toFixed(1)} (${bmiCategory(bmi)})`;
+    `BMI: ${bmi.toFixed(2)}`;
 }
 
 // BMI Category Helper
