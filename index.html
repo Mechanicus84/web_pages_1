@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Calculation Page</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>Simple Calculation Page</h1>
-  <p>This page will update automatically when I push commits.</p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Calculation Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Simple Calculation Page</h1>
+        <p>This page will update automatically when I push commits.</p>
 
-  <h2>Example Calculator</h2>
-  <input type="number" id="num1" placeholder="Enter first number">
-  <input type="number" id="num2" placeholder="Enter second number">
-  <button onclick="addNumbers()">Add</button>
+        <h2>Example Calculator</h2>
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+        <button onclick="addNumbers()">Add</button>
 
-  <p id="result"></p>
+        <p id="result"></p>
 
-  <script src="script.js"></script>
+        <br/>
+        <h2>Please enter start and end dates</h2>
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date">
+        <br/>
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date">
+        <br/>
+        <button type="button" id="calculate_dates">Calculate dates</button>
+        <br/>
+        <!-- <input type="text" id="date_result"/> -->
+         <p id="date_result"></p> 
+
+    <script src="script.js"></script>
 </body>
 </html>
