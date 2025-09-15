@@ -52,3 +52,25 @@ function calculateDates() {
         <p><strong>Working Days (Mon–Fri):</strong> ${workingDays}</p>
         `;
 }
+
+function feetInchesToMetres() {
+    const feet = parseFloat(document.getElementById("feet").value) || 0;
+    const inches = parseFloat(document.getElementById("inches").value) || 0;
+
+    const totalInches = (feet * 12) + inches;
+    const metres = totalInches * 0.0254; // 1 inch = 0.0254 m
+
+    document.getElementById("metresResult").innerText =
+    `${feet} ft ${inches} in = ${metres.toFixed(2)} m`;
+    }
+
+function metresToFeetInches() {
+    const metres = parseFloat(document.getElementById("metres").value) || 0;
+
+    const totalInches = metres / 0.0254;
+    const feet = Math.floor(totalInches / 12);
+    const inches = Math.round(totalInches % 12);
+
+    document.getElementById("feetInchesResult").innerText =
+    `${metres.toFixed(2)} m = ${feet} ft ${inches} in`;
+}

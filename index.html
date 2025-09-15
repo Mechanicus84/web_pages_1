@@ -28,6 +28,22 @@
 
         <div id="dateResult"></div>
 
+        <h2>Height Converter</h2>
+
+        <h3>Feet + Inches ➝ Metres</h3>
+        <label for="feet">Feet:</label>
+        <input type="number" id="feet" placeholder="e.g. 5">
+        <label for="inches">Inches:</label>
+        <input type="number" id="inches" placeholder="e.g. 8">
+        <button onclick="feetInchesToMetres()">Convert</button>
+        <p id="metresResult"></p>
+
+        <h3>Metres ➝ Feet + Inches</h3>
+        <label for="metres">Metres:</label>
+        <input type="number" step="0.01" id="metres" placeholder="e.g. 1.75">
+        <button onclick="metresToFeetInches()">Convert</button>
+        <p id="feetInchesResult"></p>
+
         <script src="script.js"></script>
     </body>
 </html>
