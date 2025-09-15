@@ -1,10 +1,63 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 40px;
-  background: #f4f4f9;
-  color: #333;
+	font-family: Arial, sans-serif;
+	margin: 40px;
+	background: #f4f4f9;
+	color: #333;
 }
 
 h1 {
-  color: #0066cc;
+	color: #0066cc;
+}
+
+input, button {
+	margin: 5px 0;
+	padding: 5px;
+	font-size: 1em;
+}
+
+button {
+	cursor: pointer;
+}
+
+/* Highlight calculation results */
+.calculation-result {
+	background-color: #fff89a; /* yellow */
+	padding: 10px;
+	border-radius: 5px;
+	margin-top: 5px;
+	font-weight: bold;
+}
+
+/* Highlight invalid inputs */
+.invalid-input {
+	background-color: #f28c8c; /* red */
+	padding: 10px;
+	border-radius: 5px;
+	margin-top: 5px;
+	font-weight: bold;
+	color: #fff;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+	background-color: #1e1e1e;
+	color: #f0f0f0;
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode button {
+	background-color: #333;
+	color: #f0f0f0;
+	border: 1px solid #555;
+}
+
+body.dark-mode .calculation-result {
+	background-color: #444d26;
+	color: #f0f0f0;
+}
+
+body.dark-mode .invalid-input {
+	background-color: #a63a3a;
+	color: #fff;
 }

@@ -1,94 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Calculation Page</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <h1>Simple Calculation Page V1</h1>
-        <!--
-        <h1>Simple Calculation Page</h1>
-        <p>This page will update automatically when I push commits.</p>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Calculation Page</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<button id="darkModeToggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
 
-        <h2>Example Calculator</h2>
-        <input type="number" id="num1" placeholder="Enter first number">
-        <input type="number" id="num2" placeholder="Enter second number">
-        <button onclick="addNumbers()">Add</button>
+		<h1>Simple Calculation Page</h1>
+		<p>This page will update automatically when I push commits.</p>
 
-        <p id="result"></p>
-    -->
+		<h2>Example Calculator</h2>
+		<input type="number" id="num1" placeholder="Enter first number">
+		<input type="number" id="num2" placeholder="Enter second number">
+		<button onclick="addNumbers()">Add</button>
+		<p id="result"></p>
 
-        <h2>Date Difference Calculator</h2>
-        <label for="start">Start Date:</label>
-        <input type="date" id="start">
+		<h2>Date Difference Calculator</h2>
+		<label for="start">Start Date:</label>
+		<input type="date" id="start">
+		<label for="end">End Date:</label>
+		<input type="date" id="end">
+		<button onclick="calculateDates()">Calculate</button>
+		<div id="dateResult"></div>
 
-        <label for="end">End Date:</label>
-        <input type="date" id="end">
+		<h2>Height Converter</h2>
+		<h3>Feet + Inches ➝ Metres</h3>
+		<label for="feet">Feet:</label>
+		<input type="number" id="feet" placeholder="e.g. 5">
+		<label for="inches">Inches:</label>
+		<input type="number" id="inches" placeholder="e.g. 8">
+		<button onclick="feetInchesToMetres()">Convert</button>
+		<p id="metresResult"></p>
 
-        <button onclick="calculateDates()">Calculate</button>
+		<h3>Metres ➝ Feet + Inches</h3>
+		<label for="metres">Metres:</label>
+		<input type="number" step="0.01" id="metres" placeholder="e.g. 1.75">
+		<button onclick="metresToFeetInches()">Convert</button>
+		<p id="feetInchesResult"></p>
 
-        <div id="dateResult"></div>
+		<h2>Weight Converter</h2>
+		<h3>Stone + Pounds ➝ Kilograms</h3>
+		<label for="stone">Stone:</label>
+		<input type="number" id="stone" placeholder="e.g. 12">
+		<label for="pounds">Pounds:</label>
+		<input type="number" id="pounds" placeholder="e.g. 5">
+		<button onclick="stonePoundsToKg()">Convert</button>
+		<p id="kgResult"></p>
 
-        <br>
-        <h2>Height Converter</h2>
+		<h3>Kilograms ➝ Stone + Pounds</h3>
+		<label for="kg">Kilograms:</label>
+		<input type="number" step="0.1" id="kg" placeholder="e.g. 70">
+		<button onclick="kgToStonePounds()">Convert</button>
+		<p id="stonePoundsResult"></p>
 
-        <h3>Feet + Inches ➝ Metres</h3>
-        <label for="feet">Feet:</label>
-        <input type="number" id="feet" placeholder="e.g. 5">
-        <label for="inches">Inches:</label>
-        <input type="number" id="inches" placeholder="e.g. 8">
-        <button onclick="feetInchesToMetres()">Convert</button>
-        <p id="metresResult"></p>
+		<h2>BMI Calculator</h2>
+		<h3>Metric Input (kg / m)</h3>
+		<label for="bmiKg">Weight (kg):</label>
+		<input type="number" step="0.1" id="bmiKg" placeholder="e.g. 70">
+		<label for="bmiM">Height (m):</label>
+		<input type="number" step="0.01" id="bmiM" placeholder="e.g. 1.75">
+		<button onclick="calculateBMIMetric()">Calculate BMI</button>
+		<p id="bmiResultMetric"></p>
 
-        <h3>Metres ➝ Feet + Inches</h3>
-        <label for="metres">Metres:</label>
-        <input type="number" step="0.01" id="metres" placeholder="e.g. 1.75">
-        <button onclick="metresToFeetInches()">Convert</button>
-        <p id="feetInchesResult"></p>
+		<h3>Imperial Input (stone/pounds / ft/in)</h3>
+		<label for="bmiStone">Weight (st):</label>
+		<input type="number" id="bmiStone" placeholder="e.g. 11">
+		<label for="bmiPounds">Weight (lb):</label>
+		<input type="number" id="bmiPounds" placeholder="e.g. 0">
+		<br>
+		<label for="bmiFeet">Height (ft):</label>
+		<input type="number" id="bmiFeet" placeholder="e.g. 5">
+		<label for="bmiInches">Height (in):</label>
+		<input type="number" id="bmiInches" placeholder="e.g. 8">
+		<button onclick="calculateBMIImperial()">Calculate BMI</button>
+		<p id="bmiResultImperial"></p>
 
-        <br>
-        <h2>Weight Converter</h2>
-
-        <h3>Stone + Pounds ➝ Kilograms</h3>
-        <label for="stone">Stone:</label>
-        <input type="number" id="stone" placeholder="e.g. 12">
-        <label for="pounds">Pounds:</label>
-        <input type="number" id="pounds" placeholder="e.g. 5">
-        <button onclick="stonePoundsToKg()">Convert</button>
-        <p id="kgResult"></p>
-
-        <h3>Kilograms ➝ Stone + Pounds</h3>
-        <label for="kg">Kilograms:</label>
-        <input type="number" step="0.1" id="kg" placeholder="e.g. 70">
-        <button onclick="kgToStonePounds()">Convert</button>
-        <p id="stonePoundsResult"></p>
-
-        <br>
-        <h2>BMI Calculator</h2>
-
-        <h3>Metric Input (kg / m)</h3>
-        <label for="bmiKg">Weight (kg):</label>
-        <input type="number" step="0.1" id="bmiKg" placeholder="e.g. 70">
-        <label for="bmiM">Height (m):</label>
-        <input type="number" step="0.01" id="bmiM" placeholder="e.g. 1.75">
-        <button onclick="calculateBMIMetric()">Calculate BMI</button>
-        <p id="bmiResultMetric"></p>
-
-        <h3>Imperial Input (stone/pounds / ft/in)</h3>
-        <label for="bmiStone">Weight (st):</label>
-        <input type="number" id="bmiStone" placeholder="e.g. 11">
-        <label for="bmiPounds">Weight (lb):</label>
-        <input type="number" id="bmiPounds" placeholder="e.g. 0">
-        <br>
-        <label for="bmiFeet">Height (ft):</label>
-        <input type="number" id="bmiFeet" placeholder="e.g. 5">
-        <label for="bmiInches">Height (in):</label>
-        <input type="number" id="bmiInches" placeholder="e.g. 8">
-        <button onclick="calculateBMIImperial()">Calculate BMI</button>
-        <p id="bmiResultImperial"></p>
-
-        <script src="script.js"></script>
-    </body>
+		<script src="script.js"></script>
+	</body>
 </html>
