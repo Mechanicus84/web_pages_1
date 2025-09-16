@@ -147,14 +147,10 @@ function calculateDosesCost() {
 	var doseX3 = eachDose * 3;
 	var doseX4 = eachDose * 4;
 
-	document.getElementById("penCostResult").innerHTML = `
-		<span class="calculation-result">
-			Each Dose : ${eachDose.toFixed(2)} |  
-			1 x dose : ${doseX1.toFixed(2)} | 
-			2 x dose : ${doseX2.toFixed(2)} | 
-			3 x dose : ${doseX3.toFixed(2)} | 
-			4 x dose : ${doseX4.toFixed(2)}
-		</span>
-	`;
+	//var doseCostResult = "Each Dose : "+eachDose+" | 1 x dose : "+doseX1+" | 2 x dose : "+doseX2+" | 3 x dose : "+doseX3+" | 4 x dose : "+doseX4;
 
+	document.getElementById("penCostResult").innerHTML = `
+		<span class="calculation-result">Each Dose : £${eachDose.toFixed(2)} |  1 x dose : £${doseX1.toFixed(2)} | 2 x dose : £${doseX2.toFixed(2)} | 3 x dose : £${doseX3.toFixed(2)} | 4 x dose : £${doseX4.toFixed(2)}</span>`;
+
+	//document.getElementById("penCostResult").innerHTML = `<span class="calculation-result"> ${doseCostResult}</span>`;
 }
