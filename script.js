@@ -84,7 +84,7 @@ function stonePoundsToKg() {
 
 	const totalPounds = (stone * 14) + pounds;
 	const kg = totalPounds * 0.45359237;
-	document.getElementById("kgResult").innerHTML = `<span class="calculation-result">${stone} st ${pounds} lb = ${kg.toFixed(1)} kg</span>`;
+	document.getElementById("kgResult").innerHTML = `<span class="calculation-result">${stone} st ${pounds} lb = ${kg.toFixed(2)} kg</span>`;
 }
 
 function kgToStonePounds() {
