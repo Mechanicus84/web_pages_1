@@ -149,10 +149,10 @@ function calculateDosesCost() {
 
 	document.getElementById("penCostResult").innerHTML = `
 		<span class="calculation-result">
-			Each Dose : ${eachDose.toFixed(2)} <br> 
-			1 x dose : ${doseX1.toFixed(2)} <br>
-			2 x dose : ${doseX2.toFixed(2)} <br>
-			3 x dose : ${doseX3.toFixed(2)} <br>
+			Each Dose : ${eachDose.toFixed(2)} |  
+			1 x dose : ${doseX1.toFixed(2)} | 
+			2 x dose : ${doseX2.toFixed(2)} | 
+			3 x dose : ${doseX3.toFixed(2)} | 
 			4 x dose : ${doseX4.toFixed(2)}
 		</span>
 	`;
