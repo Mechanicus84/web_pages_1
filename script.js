@@ -132,3 +132,29 @@ function calculateBMIImperial() {
 	const bmi = totalKg / (totalM * totalM);
 	document.getElementById("bmiResultImperial").innerHTML = `<span class="calculation-result">BMI: ${bmi.toFixed(2)}</span>`;
 }
+
+function calculateDosesCost() {
+	const penTotalCost = parseFloat(document.getElementById("penTotalCost").value) || 0
+
+	if (penTotalCost <= 0) {
+		document.getElementById("penCostResult").innerHTML = `<span class="invalid-input">Please enter valid Pen Total Cost.</span>`;
+		return;
+	}
+
+	var eachDose = penTotalCost / 4
+	var doseX1 = eachDose;
+	var doseX2 = eachDose * 2;
+	var doseX3 = eachDose * 3;
+	var doseX4 = eachDose * 4;
+
+	document.getElementById("penCostResult").innerHTML = `
+		<span class="calculation-result">
+			Each Dose : ${eachDose.toFixed(2)} <br> 
+			1 x dose : ${doseX1.toFixed(2)} <br>
+			2 x dose : ${doseX2.toFixed(2)} <br>
+			3 x dose : ${doseX3.toFixed(2)} <br>
+			4 x dose : ${doseX4.toFixed(2)}
+		</span>
+	`;
+
+}
